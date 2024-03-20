@@ -15,3 +15,15 @@
 - Diagnostic
 - Error Handling
 - HTTPs
+
+# 2 Types of routing in web apps
+- Client side routing
+- Server side routing
+
+# Redux toolkit
+- Install react-redux and @reduxjs/toolkit
+- Build our store
+- Connect our store to the app
+- Create a cart slice
+- Dispatch action
+- Read the data using selector
