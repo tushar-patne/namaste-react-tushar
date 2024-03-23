@@ -7,7 +7,7 @@ import { addItem } from "../utils/cartSlice"
 import ItemList from './ItemList';
 
 const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
-  console.log(data);
+  // console.log(data);
   // const [isOpen, setIsOpen] = useState(true);
   const clickHandler = () => {
     setShowIndex();

@@ -8,8 +8,16 @@ import { useSelector } from "react-redux";
 const Header = () => {
 
   const isOnline = useOnlineStatus();
-  const {loggedInUser} = useContext(UserContext);
+  const {loggedInUser, setUser} = useContext(UserContext);
   const cartItems = useSelector(store => store.cart.items);
+
+  const handleLogIn = () => {
+    if(loggedInUser == "Guest User"){
+      setUser("Tushar Patne");
+    } else {
+      setUser("Guest User");
+    }
+  }
 
     return (
       <div className="header flex items-center justify-between py-1 px-4 mb-4 shadow-md">
@@ -35,8 +43,11 @@ const Header = () => {
           <li>
             {isOnline ? '🟢' : '🔴'}
           </li>
-          <li>
+          <li data-testid="loggedInUser">
             {loggedInUser}
+          </li>
+          <li>
+            <button onClick={handleLogIn}>{loggedInUser === "Guest User" ? "Login" : "Logout"}</button>
           </li>
         </ul>
       </div>

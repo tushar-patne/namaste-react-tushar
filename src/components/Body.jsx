@@ -1,6 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import ShimmerCardContainer from "./ShimmerCardContainer";
-import resList from "../utils/mockData"
+// import resList from "../utils/mockData"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus"; 
@@ -22,7 +22,7 @@ const Body = () => {
       }
     });
     data = await data.json();
-    console.log(data);
+    // console.log(data);
     // console.log(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setRestaurants(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setFilteredRest(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -30,7 +30,7 @@ const Body = () => {
 
   const filterTopRatedRestau = () => {
     let filtered_res = restaurants.filter((element) => element.info.avgRating > 4.5);
-    // console.log(filtered_res);
+    console.log(filtered_res);
     setFilteredRest(filtered_res);
   }
 
@@ -78,7 +78,7 @@ const Body = () => {
         <div className="res-container flex flex-wrap gap-4 mx-10 justify-between">
           {filteredRest.map((restaurant, index) => (
             <Link to={`/restaurant/${restaurant?.info?.id}`} key={restaurant?.info?.id}>
-              {restaurant?.info?.avgRating >= 4.5 && <label className="bg-rose-600 text-white rounded-sm text-xs absolute p-1 z-10 shadow-md shadow-white">promoted</label> }
+              {restaurant?.info?.avgRating >= 4.2 && <label className="bg-rose-600 text-white rounded-sm text-xs absolute p-1 z-10 shadow-md shadow-white">promoted</label> }
               <RestaurantCard resData={restaurant} />
             </Link>
           ))}

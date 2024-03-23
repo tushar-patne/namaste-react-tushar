@@ -3,6 +3,7 @@ import { CLOUDINARY_CDN_URL, MENU_API } from "../utils/constants";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
+import { nanoid } from "@reduxjs/toolkit";
 
 const RestaurantMenu = () => {
 
@@ -19,7 +20,7 @@ const RestaurantMenu = () => {
     const { id, name, city, areaName } = resInfo?.cards?.at(0).card?.card?.info || {};
     const resMenu = resInfo?.cards?.at(2)?.groupedCard?.cardGroupMap?.REGULAR?.cards?.at(2).card?.card?.itemCards || [];
     // console.log(resMenu);
-    console.log(resInfo);
+    // console.log(resInfo);
     const categories = resInfo?.cards?.at(2)?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c =>
         c.card.card["@type"] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     )
@@ -46,6 +47,7 @@ const RestaurantMenu = () => {
             </ul> */}
             {categories?.map((category, index) => (
                 <RestaurantCategory
+                    key={nanoid()}
                     data={category?.card?.card}
                     showItems={index === showIndex ? true : false}
                     setShowIndex={() => setShowIndex(prev => (prev === index ? -1 : index))}

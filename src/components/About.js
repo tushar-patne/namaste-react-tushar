@@ -31,7 +31,7 @@ class About extends React.Component {
     console.log("parent render");
     return (
       <div>
-        <h1>About page</h1>
+        {/* <h1>About page</h1> */}
         {/* <UserClass name={"Child 1"} insta={"patnetejas45__"} contact={8169622343} /> */}
         {/* <UserClass name={"Child 2"} insta={"patnetejas45__"} contact={8169622343} /> */}
         <NewUserClass />

@@ -2,7 +2,7 @@
   
   const RestaurantCard = ({ resData: { info } }) => {
     return (
-      <div className="res-card w-full sm:w-64 p-2 bg-yellow-200 hover:bg-yellow-300 border transition-all shadow-md">
+      <div data-testid="rest-card" className="res-card w-full sm:w-64 p-2 bg-yellow-200 hover:bg-yellow-300 border transition-all shadow-md">
         <div className="card-img overflow-hidden">
           <img className="object-cover transition-all hover:scale-110"
             src={ CLOUDINARY_CDN_URL + info?.cloudinaryImageId }

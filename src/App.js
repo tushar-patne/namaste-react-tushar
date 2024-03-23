@@ -19,16 +19,16 @@ import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 
 const AppLayout = () => {
-  const [user, setUser] = useState("Unknown user");
+  const [user, setUser] = useState("Guest User");
 
-  useEffect(() => {
+  // useEffect(() => {
     //api call to fetch user
-    setUser("Tushar Patne");
-  }, []);
+    // setUser("Tushar Patne");
+  // }, []);
 
   return (
     <Provider store={appStore}>
-      <UserContext.Provider value={{ loggedInUser: user }}>
+      <UserContext.Provider value={{ loggedInUser: user, setUser }}>
         <div className="app">
           <Header />
           <Outlet />
